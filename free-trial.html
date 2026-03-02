@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Trial - Online Quran Academy</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .form-section {
+      max-width: 750px;
+      margin: 40px auto;
+      background-color: var(--light-green);
+      padding: 35px 45px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .form-section h2 {
+      text-align: center;
+      color: var(--primary-green);
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: var(--primary-green);
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary-green);
+      color: var(--text-light);
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: var(--secondary-green);
+    }
+
+    .local-time {
+      font-weight: bold;
+      color: var(--secondary-green);
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar container">
+  <a href="index.html" class="logo">Quran Education Academy</a>
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="free-trial.html">Free Trial</a></li>
+    <li><a href="fees.html">Fees</a></li>
+     <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</header>
+
+<section class="form-section">
+  <h2>Book Your Free Trial</h2>
+
+  <div class="local-time" id="localTime">
+    Your local time will appear here
+  </div>
+
+  <form id="freeTrialForm">
+
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Email</label>
+    <input type="email" id="email" required>
+
+    <label>WhatsApp Number</label>
+    <input type="tel" id="whatsapp" required placeholder="+923001234567">
+
+    <label>Select Course</label>
+    <select id="course" required>
+      <option value="">Select Course</option>
+      <option>Noorani Qaida</option>
+      <option>Quran Reading</option>
+      <option>Quran Recitation with Tajweed</option>
+      <option>Quran Memorization</option>
+      <option>Quran Ijazah</option>
+      <option>Ten Qirat</option>
+      <option>Islamic Studies</option>
+      <option>Duas</option>
+      <option>Namaz Course</option>
+    </select>
+
+    <label>Country</label>
+    <select id="country" required>
+      <option value="">Select Your Country</option>
+      <option value="Asia/Karachi">Pakistan</option>
+      <option value="Asia/Riyadh">Saudi Arabia</option>
+      <option value="Asia/Dubai">UAE</option>
+      <option value="Europe/London">United Kingdom</option>
+      <option value="America/New_York">USA Eastern</option>
+      <option value="America/Chicago">USA Central</option>
+      <option value="America/Los_Angeles">USA Pacific</option>
+      <option value="America/Toronto">Canada</option>
+      <option value="Australia/Sydney">Australia</option>
+      <option value="Australia/Sydney">Other(Write in message)</option>
+    </select>
+
+    <label>Message</label>
+    <textarea id="message" rows="4"
+      placeholder="Preferred time, age of student,country name or any questions"></textarea>
+
+    <button type="submit">Submit Free Trial Request</button>
+
+  </form>
+</section>
+
+<footer class="footer">
+  © 2026 Online Quran Academy. All Rights Reserved.
+</footer>
+
+<script>
+  const form = document.getElementById("freeTrialForm");
+  const countrySelect = document.getElementById("country");
+  const localTimeDiv = document.getElementById("localTime");
+
+  countrySelect.addEventListener("change", () => {
+    const tz = countrySelect.value;
+    if (tz) {
+      const now = new Date();
+      localTimeDiv.textContent =
+        "Current time in selected country: " +
+        now.toLocaleString("en-US", { timeZone: tz });
+    }
+  });
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+    const course = document.getElementById("course").value;
+    const country = document.getElementById("country").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappMessage =
+      `Assalam o Alaikum,%0A%0A` +
+      `New Free Trial Request:%0A` +
+      `Name: ${name}%0A` +
+      `Email: ${email}%0A` +
+      `WhatsApp: ${whatsapp}%0A` +
+      `Course: ${course}%0A` +
+      `Country: ${country}%0A` +
+      `Message: ${message}`;
+
+    const whatsappURL =
+      `https://wa.me/923198520905?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+
+</body>
+</html>

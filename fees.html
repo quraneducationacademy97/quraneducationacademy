@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fees - Online Quran Academy</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .fee-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .fee-section h2 {
+      text-align: center;
+      color: var(--primary-green);
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .fee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .fee-card {
+      background-color: var(--light-green);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fee-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .fee-card h3 {
+      color: var(--secondary-green);
+      font-size: 22px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .fee-card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      flex-grow: 1;
+    }
+
+    .fee-card th, .fee-card td {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .fee-card th {
+      background-color: var(--primary-green);
+      color: #fff;
+      font-weight: bold;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .fee-card td:last-child {
+      font-weight: bold;
+      color: var(--secondary-green);
+    }
+
+    @media (max-width: 600px) {
+      .fee-card table th, .fee-card table td {
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="navbar container">
+  <a href="index.html" class="logo">Quran Education Academy <span></span></a>
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="free-trial.html">Free Trial</a></li>
+    <li><a href="fees.html">Fees</a></li>
+     <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</header>
+
+<section class="fee-section">
+  <h2>Our Fee Plans</h2>
+
+  <div class="fee-grid">
+
+    <div class="fee-card">
+      <h3>USD Plans</h3>
+      <table>
+        <tr><th>Schedule / Week</th><th>Classes / Month</th><th>Fee</th></tr>
+        <tr><td>2 Classes</td><td>08</td><td>$30</td></tr>
+        <tr><td>3 Classes</td><td>12</td><td>$40</td></tr>
+        <tr><td>4 Classes</td><td>16</td><td>$50</td></tr>
+        <tr><td>5 Classes</td><td>20</td><td>$60</td></tr>
+      </table>
+    </div>
+
+    <div class="fee-card">
+      <h3>PKR Plans</h3>
+      <table>
+        <tr><th>Schedule / Week</th><th>Classes / Month</th><th>Fee</th></tr>
+        <tr><td>2 Classes</td><td>08</td><td>₨ 3000</td></tr>
+        <tr><td>3 Classes</td><td>12</td><td>₨ 4000</td></tr>
+        <tr><td>4 Classes</td><td>16</td><td>₨ 5000</td></tr>
+        <tr><td>5 Classes</td><td>20</td><td>₨ 5500</td></tr>
+      </table>
+    </div>
+
+    <div class="fee-card">
+      <h3>GBP Plans</h3>
+      <table>
+        <tr><th>Schedule / Week</th><th>Classes / Month</th><th>Fee</th></tr>
+        <tr><td>2 Classes</td><td>08</td><td>£30</td></tr>
+        <tr><td>3 Classes</td><td>12</td><td>£35</td></tr>
+        <tr><td>4 Classes</td><td>16</td><td>£40</td></tr>
+        <tr><td>5 Classes</td><td>20</td><td>£45</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  &copy; 2026 Online Quran Academy. All Rights Reserved.
+</footer>
+</body>
+</html>

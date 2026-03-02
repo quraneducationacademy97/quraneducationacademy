@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Online Quran Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+<header class="navbar container">
+  <a href="index.html" class="logo">Quran Education Academy</a>
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="free-trial.html">Free Trial</a></li>
+    <li><a href="fees.html">Fees</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  
+</header>
+
+<section class="section">
+  <h2>Contact Us</h2>
+  <p>
+    Have questions or want to get started? Fill out the form below and we will contact you shortly.
+  </p>
+
+  <form class="contact-form" id="contactForm">
+
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Email Address</label>
+    <input type="email" id="email" required>
+
+    <label>WhatsApp Number</label>
+    <input type="tel" id="whatsapp" required placeholder="+923001234567">
+
+    <label>Message</label>
+    <textarea id="message" rows="5" placeholder="Write your message here"></textarea>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+
+  <div style="margin-top:40px;">
+    <h3>Contact Details</h3>
+    <p><strong>Email:</strong> quraneducationacademy97@gmail.com</p>
+    <p><strong>WhatsApp:</strong> +923198520905</p>
+    <p><strong>Available:</strong> 24 / 7 Online Support</p>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Online Quran Academy. All Rights Reserved.
+</footer>
+
+<script>
+  const contactForm = document.getElementById("contactForm");
+
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappMessage =
+      `Assalam o Alaikum,%0A%0A` +
+      `New Contact Message:%0A` +
+      `Name: ${name}%0A` +
+      `Email: ${email}%0A` +
+      `WhatsApp: ${whatsapp}%0A` +
+      `Message: ${message}`;
+
+    const whatsappURL =
+      `https://wa.me/923198520905?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+
+</body>
+</html>
