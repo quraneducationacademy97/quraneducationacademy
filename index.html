@@ -1,100 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
+  <!-- Added viewport meta tag for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Quran Academy</title>
   <link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .two-column {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .visual-box {
-      flex: 1;
-      min-height: 280px;
-      background-color: #eef5ee;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .visual-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* Banner image clarity fix */
-.section.light .visual-box img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  image-rendering: auto;
-}
-
-
-    .content-box {
-      flex: 1;
-    }
-
-    .btn-group {
-      margin-top: 20px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 20px;
-      text-decoration: none;
-    }
-
-    .logo img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #fff;
-      padding: 3px;
-    }
-
-    .logo span {
-      color: #ffffff;
-    }
-
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-      z-index: 1000;
-    }
-
-    .whatsapp-btn img {
-      width: 32px;
-      height: 32px;
-    }
-  </style>
 </head>
-
 <body>
 
 <header class="navbar container">
@@ -102,7 +14,13 @@
     <img src="Quran Academy Logo with Crescent Moon and Stars.png" alt="Academy Logo">
     Quran Education Academy
   </a>
-<button class="menu-toggle">Menu</button>
+
+  <!-- Hamburger Button -->
+  <button class="menu-toggle" aria-label="Toggle navigation">
+    &#9776; <!-- Hamburger Icon -->
+  </button>
+
+  <!-- Navigation Menu -->
   <ul class="nav-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="courses.html">Courses</a></li>
@@ -117,9 +35,6 @@
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Learn Quran Online with Expert Tutors</h1>
-      <p style="font-size:18px; font-weight:500; margin-top:10px;">
-  Trusted Online Quran Learning for Kids and Adults Worldwide
-</p>
       <p>
         Learn Quran online from the comfort of your home with qualified teachers,
         flexible schedules, and personalized attention for all ages.
@@ -136,13 +51,11 @@
 
 <section class="section light">
   <div class="container two-column">
-
     <div class="visual-box">
-  <video autoplay muted loop controls style="width:100%; height:auto; border-radius:12px;">
-    <source src="q3v3fj62qsrmw0cwnmrb1qsk6m_result_.mp4" type="video/mp4">
-  </video>
-</div>
-
+      <video autoplay muted loop controls style="width: 100%; border-radius: 12px;">
+        <source src="q3v3fj62qsrmw0cwnmrb1qsk6m_result_.mp4" type="video/mp4">
+      </video>
+    </div>
 
     <div class="content-box">
       <h2>Why Choose Us?</h2>
@@ -151,7 +64,6 @@
         learning approach. We make sure every student learns at their own pace
         with full attention from experienced tutors.
       </p>
-
       <ul class="why-list">
         <li>Qualified and experienced Quran teachers</li>
         <li>One to one and group online classes</li>
@@ -160,13 +72,11 @@
         <li>Free trial before enrollment</li>
       </ul>
     </div>
-
   </div>
 </section>
 
 <section class="section">
   <div class="container two-column">
-
     <div class="content-box">
       <h2>About Our Courses</h2>
       <p>
@@ -180,7 +90,6 @@
         assessments to track improvement. Our goal is to make Quran learning easy,
         engaging, and spiritually beneficial for everyone.
       </p>
-
       <div class="btn-group">
         <a href="free-trial.html" class="btn btn-primary">Free Trial</a>
         <a href="courses.html" class="btn btn-secondary">View Courses</a>
@@ -190,7 +99,6 @@
     <div class="visual-box">
       <img src="Noorani Qaida.png" alt="Our Courses">
     </div>
-
   </div>
 </section>
 
@@ -209,7 +117,6 @@
   </p>
 
   <div class="steps-grid">
-
     <div class="step-card">
       <div class="step-number">Step 1</div>
       <h3>Fill Out the Free Trial Form</h3>
@@ -237,7 +144,6 @@
       </p>
       <a href="contact.html" class="btn btn-primary">Contact Us</a>
     </div>
-
   </div>
 </section>
 
@@ -248,16 +154,18 @@
 <footer class="footer">
   © 2026 Online Quran Academy. All Rights Reserved.
 </footer>
-<script>
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
 
-  toggleBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
+<!-- JavaScript for Hamburger Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    toggleButton.addEventListener('click', function() {
+      navMenu.classList.toggle('show');
+    });
   });
 </script>
+
 </body>
 </html>
-
-
-
