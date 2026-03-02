@@ -23,6 +23,19 @@
   padding: 15px 30px;
   background-color: var(--primary-green);
 }
+@media (max-width: 768px) {
+
+  .two-column {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-box,
+  .visual-box {
+    width: 100%;
+  }
+
+}
 
 .navbar .logo {
   color: var(--text-light);
@@ -499,3 +512,4 @@ body {
     min-height: 260px;
   }
 }
+
