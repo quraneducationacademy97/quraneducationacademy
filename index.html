@@ -102,7 +102,7 @@
     <img src="Quran Academy Logo with Crescent Moon and Stars.png" alt="Academy Logo">
     Quran Education Academy
   </a>
-
+<button class="menu-toggle">Menu</button>
   <ul class="nav-menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="courses.html">Courses</a></li>
@@ -138,7 +138,7 @@
   <div class="container two-column">
 
     <div class="visual-box">
-  <video autoplay muted loop controls style="width: 100%; border-radius: 12px;">
+  <video autoplay muted loop controls style="width:100%; height:auto; border-radius:12px;">
     <source src="q3v3fj62qsrmw0cwnmrb1qsk6m_result_.mp4" type="video/mp4">
   </video>
 </div>
@@ -248,8 +248,16 @@
 <footer class="footer">
   © 2026 Online Quran Academy. All Rights Reserved.
 </footer>
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
 
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
+
 
 
