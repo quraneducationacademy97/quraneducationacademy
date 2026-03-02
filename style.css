@@ -22,19 +22,7 @@
   align-items: center;
   padding: 15px 30px;
   background-color: var(--primary-green);
-}
-@media (max-width: 768px) {
-
-  .two-column {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .content-box,
-  .visual-box {
-    width: 100%;
-  }
-
+  position: relative; /* Needed for absolute positioning of menu if desired, or z-index */
 }
 
 .navbar .logo {
@@ -42,6 +30,18 @@
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar .logo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #fff;
+  padding: 3px;
 }
 
 .navbar .logo span {
@@ -62,6 +62,19 @@
 
 .nav-menu li a:hover {
   color: var(--secondary-green);
+}
+
+/* Hamburger Button - Hidden on Desktop */
+.menu-toggle {
+  display: none;
+  background: #1b5e20;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1001; /* Ensure it stays on top */
 }
 
 /* HERO SECTION */
@@ -150,293 +163,53 @@
   color: var(--text-dark);
 }
 
-/* FORM */
-form {
-  max-width: 600px;
-  margin: 0 auto;
+/* LAYOUT CLASSES (Merged from HTML) */
+.two-column {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background-color: var(--light-green);
-  padding: 30px;
-  border-radius: 10px;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-form label {
-  font-weight: bold;
-  color: var(--primary-green);
-}
-
-form input, form select, form textarea {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-form button {
-  background-color: var(--primary-green);
-  color: var(--text-light);
-  padding: 12px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: var(--secondary-green);
-}
-
-/* FEE TABLES */
-table {
-  width: 90%;
-  margin: 0 auto 30px auto;
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: center;
-}
-
-th {
-  background-color: var(--primary-green);
-  color: var(--text-light);
-}
-
-td {
-  background-color: #f9f9f9;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--primary-green);
-  color: var(--text-light);
-} 
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.course-card {
-  background-color: var(--light-green);
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-}
-
-.course-card img.course-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.course-card h3 {
-  color: var(--primary-green);
-  margin-bottom: 10px;
-}
-
-.course-card p {
-  color: var(--text-dark);
-  font-size: 14px;
-}
-.about-hero {
-  background-color: #e9f5ee;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.about-hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.about-hero p {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 16px;
-  color: #444;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.about-card {
-  background-color: #ffffff;
-  padding: 25px;
+.visual-box {
+  flex: 1;
+  min-height: 280px;
+  background-color: #eef5ee;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
-}
-
-.about-card:hover {
-  transform: translateY(-5px);
-}
-
-.about-card h3 {
-  margin-bottom: 12px;
-  color: #2c7a4b;
-}
-
-.about-card ul {
-  padding-left: 18px;
-}
-
-.about-card ul li {
-  margin-bottom: 8px;
-}
-
-.center-text {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-}
-/* ===== ABOUT PAGE UPGRADE ===== */
-
-/* smooth page feel */
-body {
-  scroll-behavior: smooth;
-}
-
-/* hero gradient depth */
-.about-hero {
-  background: linear-gradient(135deg, #e9f5ee, #dff0e7);
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.about-hero::after {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: rgba(44,122,75,0.08);
-  border-radius: 50%;
-  top: -80px;
-  right: -80px;
+.visual-box img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
-.about-hero h1 {
-  letter-spacing: 0.5px;
+/* Banner image clarity fix */
+.section.light .visual-box img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
 }
 
-.about-hero p {
-  font-size: 17px;
+.content-box {
+  flex: 1;
+  text-align: left; /* Ensure text aligns left inside content box */
 }
 
-/* section separation */
-.section {
-  padding: 70px 20px;
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-.section.light {
-  background-color: #f7fbf9;
-}
-
-/* intro emphasis */
-.about-intro h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.about-intro p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #555;
-}
-
-/* card polish */
-.about-card {
-  position: relative;
-  border-left: 5px solid #2c7a4b;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.about-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(44,122,75,0.04));
-  border-radius: 14px;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.about-card:hover::before {
-  opacity: 1;
-}
-
-.about-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-}
-
-/* section titles */
-.section h2 {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.section h2::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 60%;
-  height: 3px;
-  background-color: #2c7a4b;
-  transform: translateX(-50%);
-  border-radius: 4px;
-}
-
-/* feature boxes upgrade */
-.feature-box {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f4fbf7, #ffffff);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-box::after {
-  content: "✔";
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 60px;
-  color: rgba(44,122,75,0.08);
-}
-
-.feature-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
-
-/* teaching method emphasis */
-.center-text {
-  font-size: 16px;
-  line-height: 1.8;
-}
+/* STEPS SECTION */
 .steps-section {
   text-align: center;
 }
@@ -486,109 +259,235 @@ body {
   font-size: 15px;
   margin-bottom: 18px;
 }
-.visual-box img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: none;
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--primary-green);
+  color: var(--text-light);
 }
-/* Banner size balance */
-.section.light .visual-box img {
-  width: 90%;
-  height: 90%;
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.whatsapp-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* COURSE GRID & CARDS (Kept from your CSS) */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.course-card {
+  background-color: var(--light-green);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card img.course-img {
+  width: 100%;
+  height: 150px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
-@media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 28px;
-  }
 
-  .two-column {
-    gap: 25px;
-  }
-
-  .visual-box {
-    min-height: 260px;
-  }
+.course-card h3 {
+  color: var(--primary-green);
+  margin-bottom: 10px;
 }
-@media (max-width: 768px) {
 
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 320px;
-  }
-
+.course-card p {
+  color: var(--text-dark);
+  font-size: 14px;
 }
-@media (max-width: 768px) {
 
-  .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
+/* ABOUT PAGE STYLES (Kept from your CSS) */
+.about-hero {
+  background: linear-gradient(135deg, #e9f5ee, #dff0e7);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.menu-toggle {
-  display: none;
-  background: #1b5e20;
-  color: #fff;
+
+.about-hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.about-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: #444;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.about-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  position: relative;
+  border-left: 5px solid #2c7a4b;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-card h3 {
+  margin-bottom: 12px;
+  color: #2c7a4b;
+}
+
+.about-card ul {
+  padding-left: 18px;
+}
+
+.about-card ul li {
+  margin-bottom: 8px;
+}
+
+/* FORM & TABLE STYLES (Kept from your CSS) */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--light-green);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+form label {
+  font-weight: bold;
+  color: var(--primary-green);
+}
+
+form input, form select, form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+  padding: 12px;
+  font-weight: bold;
   border: none;
-  padding: 10px 16px;
-  font-size: 16px;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+form button:hover {
+  background-color: var(--secondary-green);
+}
 
+table {
+  width: 90%;
+  margin: 0 auto 30px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+/* MOBILE RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  
+  /* Hamburger Logic */
   .menu-toggle {
-    display: block;
+    display: block; /* Show button */
+  }
+
+  .navbar {
+    flex-wrap: wrap; /* Allow items to wrap */
   }
 
   .nav-menu {
-    display: none;
+    display: none; /* Hidden by default */
     width: 100%;
     flex-direction: column;
     background: #1b5e20;
     margin-top: 15px;
     border-radius: 10px;
     padding: 10px 0;
+    order: 3; /* Ensure it sits below logo and button */
+  }
+
+  /* Class added by JS to show menu */
+  .nav-menu.show {
+    display: flex;
   }
 
   .nav-menu li {
     text-align: center;
     padding: 10px 0;
+    width: 100%;
   }
 
   .nav-menu a {
     color: #ffffff;
+    display: block;
   }
 
-  .nav-menu.show {
-    display: flex;
-  }
-
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-@media (max-width: 768px) {
-
-  .two-column {
+  /* Layout Adjustments */
+  .hero-content {
     flex-direction: column;
+    text-align: center;
   }
 
-  .visual-box {
-    min-height: 220px;
-    margin-top: 20px;
+  .hero-text h1 {
+    font-size: 28px;
   }
 
   .hero-image img {
@@ -597,5 +496,17 @@ img {
     margin: 0 auto;
   }
 
-}
+  .two-column {
+    flex-direction: column;
+    gap: 25px;
+  }
 
+  .content-box, .visual-box {
+    width: 100%;
+  }
+
+  .visual-box {
+    min-height: 220px;
+    margin-top: 20px;
+  }
+}
